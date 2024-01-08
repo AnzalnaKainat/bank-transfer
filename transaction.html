@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Sidebar -->
+        <nav>
+        <div class="sidebar">
+            <div class="logo"><img src="Assests/logo.png" alt="Logo"></div>
+
+            <a href="index.html" class="sidebar-link">
+                <img src="Assests/dashboard.png" alt="Dashboard" />
+                Dashboard
+            </a>
+
+            <a href="history.html" class="sidebar-link">
+                <img src="Assests/history.png" alt="History" />
+                History  
+            </a>
+
+            <a href="#" class="sidebar-link">
+                <img src="Assests/benef.png" alt="Beneficiaries" />
+                Beneficiaries
+            </a>
+            
+            <a href="#" class="sidebar-link down">
+                <img src="Assests/settings.png" alt="Settings" />
+                Settings
+            </a>
+
+            <a href="#" class="sidebar-link">
+                <img src="Assests/help.png" alt="Help" />
+                Help 
+            </a>
+            
+            <a href="#" class="sidebar-link">
+                <img src="Assests/logout.png" alt="Logout" />
+                Logout 
+            </a>
+        </div>
+        </nav>
+        <div class="main-content">
+            <div class="transaction">
+                <div class="transaction-buttons">
+                    <button onclick="showBanks()"><img src="Assests/send money1.png" alt=""><span> Send Money</span></button>
+                    <button onclick="payBill()"><img src="Assests/pay bill.png" alt=""><span>Pay Bills</span></button>
+                    <button onclick="donate()"><img src="Assests/Donate1.png" alt=""><span>Donate</span></button>
+                    <button onclick="loanPayment()"><img src="Assests/loan.png" alt=""><span>Loan Payment</span></button>
+                    <button onclick="insurance()"><img src="Assests/Insurance.png" alt=""><span>Insurance</span></button>
+                    <button onclick="exchangeCurrency()"><img src="Assests/Exchange currency.png" alt=""><span>Exchange<br>Currency</span></button>
+                </div>
+            </div>
+
+              <!-- Container for banks (initially hidden) -->
+    <div class="banks-container" id="banksContainer">
+        <div class="banks">
+            <!-- Bank links will be added dynamically here -->
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <script>
+        // Add this script in your HTML or in a separate JS file
+
+function showBanks() {
+    // Get the banks container
+    var banksContainer = document.getElementById("banksContainer");
+    
+    // Check if the banks container is already visible
+    if (banksContainer.style.display === "block") {
+        // If visible, hide it
+        banksContainer.style.display = "none";
+    } else {
+        // If not visible, dynamically generate bank links and show the container
+        generateBankLinks();
+        banksContainer.style.display = "block";
+    }
+}
+
+
+function generateBankLinks() {
+    var banksDiv = document.querySelector(".banks");
+
+    // Clear any existing bank links
+    banksDiv.innerHTML = "";
+
+    // Customize the names, images, icons, and add bank links dynamically
+    var banksData = [
+        { name: "Allied Bank Limited", image: "Assests/Allied Bank.png", icon: ">" },
+        { name: "Advans Microfinance Bank", image: "Assests/Advance microfinance bank.jpg", icon: ">" },
+        { name: "Alfa Pay", image: "Assests/Alfa pay.png", icon: ">" },
+        { name: "Bank Al Habib Limited", image: "Assests/banl al habib limited.png", icon: ">" },
+        { name: "Bank AlFalah Limited", image: "Assests/Bank alfalah.jpg", icon: ">" },
+        { name: "National Bank Of Pakistan", image: "Assests/nbp.jpg", icon: ">" },
+        { name: "Meezan Bank", image: "Assests/meezan bank.png", icon: ">" },
+        { name: "MCB Bank Limited", image: "Assests/mcb.jpg", icon: ">" },
+        { name: "Soneri Bank", image: "Assests/soneri bank.jpg", icon: ">" },
+        { name: "SadaPay", image: "Assests/sadapay.png", icon: ">" },
+        
+    ];
+
+    for (var i = 0; i < banksData.length; i++) {
+        var bankImage = document.createElement("img");
+        var bankLink = document.createElement("a");
+        var iconSpan = document.createElement("span");
+        var hrLine = document.createElement("hr");
+
+        bankLink.href = "money-transfer.html"; // Set the actual link here
+        bankLink.textContent = banksData[i].name;
+
+        bankImage.src = banksData[i].image;
+        bankImage.alt = banksData[i].name;
+        bankImage.style.width = "30px"; // Set the desired width
+        bankImage.style.marginRight = "10px"; // Adjust margin as needed
+
+        iconSpan.textContent = banksData[i].icon;
+        iconSpan.style.marginRight = "5px"; // Adjust margin as needed
+
+        banksDiv.appendChild(bankImage);
+        banksDiv.appendChild(bankLink);
+        banksDiv.appendChild(iconSpan);
+        banksDiv.appendChild(hrLine);
+    }
+}
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

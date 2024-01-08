@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Money Transaction</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav>
+        <div class="sidebar">
+            <div class="logo"><img src="Assests/logo.png" alt="Logo"></div>
+
+            <a href="index.html" class="sidebar-link">
+                <img src="Assests/dashboard.png" alt="Dashboard" />
+                Dashboard
+            </a>
+
+            <a href="history.html" class="sidebar-link">
+                <img src="Assests/history.png" alt="History" />
+                History  
+            </a>
+
+            <a href="#" class="sidebar-link">
+                <img src="Assests/benef.png" alt="Beneficiaries" />
+                Beneficiaries
+            </a>
+            
+            <a href="#" class="sidebar-link down">
+                <img src="Assests/settings.png" alt="Settings" />
+                Settings
+            </a>
+
+            <a href="#" class="sidebar-link">
+                <img src="Assests/help.png" alt="Help" />
+                Help 
+            </a>
+            
+            <a href="#" class="sidebar-link">
+                <img src="Assests/logout.png" alt="Logout" />
+                Logout 
+            </a>
+        </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="title">
+             <a href="transaction.html"><img src="Assests/back.png" alt=""></a><h1>Money Transfer</h1>
+            </div>
+            
+            <br>
+
+            <form action="" class="money-transfer">
+                <label><b>Enter Receiver's Name</b></label><br>
+
+                <label for="accountNumber">Enter Account Number or IBAN</label>
+                <input type="text" id="accountNumber" name="accountNumber" placeholder="Enter Account Number or IBAN">
+
+                <label for="purpose">Enter Purpose of Payment</label>
+                <input type="text" id="purpose" name="purpose" placeholder="Enter Purpose of Payment">
+
+                <label for="accountHolder">Enter Account Holder Name</label>
+                <input type="text" id="accountHolder" name="accountHolder" placeholder="Enter Account Holder Name">
+
+                <div class="amount">
+                    <label for="amount"><b>Enter Amount</b></label>
+                    <div class="input-info">
+                        <input type="text" id="amount" name="amount">
+                        <p>Remaining Balance <br>2,20,000.00 </p>
+                    </div>  
+                </div>
+                <div class="money-buttons">
+                    <button onclick="backToTransactionPage()" class="button-border">Cancel</button>
+                    <button onclick="openNextModal()" class="next">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal hidden">
+        <div class="close-modal" onclick="closeModal()">&times;</div>
+        <h1>Confirm Send Money to Account</h1>
+
+        <div class="decision">
+            <div class="from-section">
+              <h3>FROM</h3>
+              <h4>Sophia Carter</h4>
+              <p>Account Number <br> 473785025149</p>
+              <div class="sending-amount">
+                <h3>Amount</h3>
+                <h5>15,460</h5>
+                <p>Remaining Amount :&nbsp;&nbsp; &nbsp;220,000.00</p>
+              </div>
+              <button type="submit" class="confirm" onclick="makeTransaction()">Change</button>
+            </div>
+
+            <div class="to-section">
+                <h3>To</h3>
+                <h4>James Mitchell</h4>
+                <p>Account Number <br> 573647047</p>
+                <h4>Allied Bank Limited</h4>
+                <button type="submit" class="confirm" onclick="BackToMoneyTransfer()">Edit</button>
+            </div>
+        </div>
+        <br>
+        <div class="next-page">
+            <button type="submit" class="next-moneySent" onclick="openNextModal()">Next</button>
+        </div>
+    </div>
+
+    <!-- New modal for moneySentModal -->
+    <div class="modal moneySentModal hidden">
+        <div class="close-modal" onclick="closeModal()">&times;</div>
+        <h1>Money Sent Successfully</h1>
+        <img src="Assests/check.jpg" alt="" srcset="">
+        <p> Congratulation! Your fund transfers should be available
+            in a few minutes in the recipient's account </p>
+        <div class="sentInfo">
+            <h4>James Mitchell</h4>
+             <div class="sentAmount">
+                <p>56754363386</p>
+                <span>15,760 pkr</span>
+             </div>
+        </div>    
+        <div class="homepage">
+            <button type="submit" class="done" onclick="backToHomePage()">Done</button>
+            <button type="submit" class="beneficiaries" onclick="addToBeneficiaries()"><span>+</span> &nbsp; Add to Beneficiaries</button>
+        </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+
+    <script>
+        const modal = document.querySelector('.modal');
+        const moneySentModal = document.querySelector('.moneySentModal');
+        const overlay = document.querySelector('.overlay');
+        const btnsOpenModal = document.querySelectorAll('.next');
+        const btnNextMoneySent = document.querySelector('.next-moneySent');
+    
+        const openModal = function (e) {
+            e.preventDefault();
+            modal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+        };
+    
+        const openNextModal = function (e) {
+            e.preventDefault();
+            modal.classList.add('hidden');
+            moneySentModal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+        };
+    
+        const closeModal = function () {
+            modal.classList.add('hidden');
+            moneySentModal.classList.add('hidden');
+            overlay.classList.add('hidden');
+        };
+    
+        for (let i = 0; i < btnsOpenModal.length; i++) {
+            btnsOpenModal[i].addEventListener('click', openModal);
+        }
+    
+        btnNextMoneySent.addEventListener('click', openNextModal);
+    
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

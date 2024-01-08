@@ -1,0 +1,532 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+nav{
+   margin-left: 30px;
+   /* flex: 1; */
+}
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  
+}
+.sidebar-link {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  margin: 15px 0;
+  display: flex;
+  align-items: left;
+}
+
+.down {
+  margin-top: 8rem;
+}
+
+.sidebar img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.sidebar .logo img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 7rem;
+}
+
+.main-content {
+  flex: 1;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+.profile-img img{
+    width: 50px;
+    height: 8vh;
+    object-fit: cover;
+    position: absolute;
+    border-radius: 100%;
+    border: 1px solid #eee;
+    right: 40px;
+    top: 10px;
+}
+.header {
+  padding: 20px;
+  margin-top: 8rem;
+  margin-left: 2rem;
+}
+
+.account-section {
+  margin-top: 20px;
+  margin-left: 3rem;
+  width: 70%;
+  height: 140px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  position: relative;
+}
+
+h5,
+h4 {
+  margin: 20px;
+  font-weight: bold;
+}
+
+p {
+  width: 70%;
+}
+
+.buttons-section {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2rem; /* Adjust the right margin as needed */
+}
+
+button {
+  width: 70%; /* Occupy full width */
+  height: 40px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-color: #edb8f3;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: rgb(68, 68, 68);
+  cursor: pointer;
+}
+.button-border {
+  border: 5px solid #edb8f3;
+  background-color: white;
+}
+
+
+/****************** Transaction *****************/
+.transaction {
+  width: 50%;
+  height: 30vh;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin: 11rem 3rem;
+  background-color: #f3eeee;
+}
+
+.transaction-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+}
+
+.transaction-buttons button {
+  flex: 1 1 calc(33.33% - 20px); /* Each button takes equal width within the flex container */
+  max-width: calc(33.33% - 20px); /* Set max-width to ensure three buttons in a row with margin */
+  margin: 5px; /* Add margin for spacing between buttons */
+  text-align: left; /* Align text to the left */
+  overflow: hidden; /* Ensure content does not overflow */
+  height: 10vh;
+  margin: 10px;
+  margin-top: 15px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: space-evenly; /* Space between image and text */
+  padding: 0 10px; /* Add padding to separate image and text */
+}
+
+/* Adjust the styling of the buttons and images as needed */
+.transaction-buttons button img {
+  max-width: 20%; /* Adjust max-width to fill the button width */
+  height: auto;
+  display: block; /* Make sure the image is treated as a block element */
+}
+
+/***************** Bank List ********************/
+.banks-container {
+  width: 30%;
+  height: 80vh;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow-y: auto;
+  background-color: #f3eeee;
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  display: none;
+}
+
+.banks {
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  width: 90%;
+}
+
+.banks a {
+  text-decoration: none;
+  color: rgb(68, 68, 68);
+  padding: 10px;
+  margin: 5px;
+  display: inline;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%; /* Adjusted width for better responsiveness */
+  cursor: pointer;
+}
+
+.banks img {
+  width: 30%; /* Set the desired width */
+  height: 30px; /* Set the desired height */
+  border-radius: 50%; /* Make the image round */
+}
+
+.banks span {
+  text-align: left; /* Align the text to the left within the available space */
+}
+.banks hr {
+  width: 80%;
+  margin: 0 auto;
+  margin-block: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px; /* Add border radius for the scrolling effect */
+}
+
+/******************* Money Transaction Page ******************/
+.title {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 15px;
+  background-color: #fbfbfb;
+}
+
+.title a img {
+  max-width: 50px;
+  margin-left: 15px;
+}
+
+.title h1 {
+  margin-left: 28%;
+}
+
+.money-transfer {
+  width: 30%;
+  padding: 2rem;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fbfbfb;
+}
+
+.money-transfer label {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.money-transfer input {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.amount {
+  display: inline-block;
+  align-items: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #7070701c;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.amount .input-info {
+  display: flex;
+  flex: 1;
+}
+.amount p {
+  margin-left: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.money-buttons {
+  display: flex;
+}
+
+.money-buttons button {
+  width: 100%;
+  margin: 20px 15px 0px 15px;
+}
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.modal p {
+  font-size: small;
+  margin: 0 auto;
+}
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  background-color: white;
+  padding: 4rem;
+  border-radius: 10px;
+  /* border: 6px solid  #FBAC08;  */
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+.decision {
+  height: 50vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: none;
+}
+
+.from-section {
+  width: 40%;
+  height: 55vh;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 0px 0px 0px 25px;
+  margin: 0 auto;
+}
+
+.to-section {
+  text-align: left;
+  width: 40%;
+  height: 55vh;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 0px 0px 0px 25px;
+}
+.sending-amount {
+  text-align: center;
+  height: 20vh;
+  margin: 10px 25px 10px 0px;
+  background-color: #edb8f3;
+  border-radius: 10px;
+}
+.sending-amount h3 {
+  padding-top: 10px;
+}
+.confirm {
+  border: 5px solid #edb8f3;
+  background-color: white;
+  margin: 15px 10px 15px 20px;
+}
+.next-page {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.next-page button {
+  margin: 40px 0px 0px 50px;
+  background-color: #edb8f3;
+  border-radius: 10px;
+}
+/* Add these styles for the next-moneySent modal */
+.moneySentModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  background-color: #fbfbfb;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  text-align: center;
+  /* display: none; */
+}
+
+.moneySentModal h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.moneySentModal img {
+  width: 35%;
+  margin-bottom: 1rem;
+}
+.moneySentModal p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.sentInfo {
+  background-color: #70707018;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.sentAmount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.sentAmount p {
+  margin-left: 20px;
+}
+.sentAmount span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.homepage button {
+  width: 60%;
+  cursor: pointer;
+}
+.beneficiaries {
+  background-color: #fff;
+  border: 3px solid #edb8f3;
+}
+.beneficiaries span {
+  color: #edb8f3;
+}
+
+/********************** History**********************/
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.filter h1 {
+  margin-left: 40px;
+}
+
+.filter form {
+  display: flex;
+  gap: 10px;
+}
+.filter form label {
+  font-weight: bold;
+}
+.filter form input {
+  border-radius: 5px;
+  max-width: 30%;
+  height: 20px;
+  border: 1px solid #ddd;
+}
+.history {
+  background-color: #fbfbfb;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 20px;
+  height: 70vh;
+  overflow-y: auto;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.filter-link {
+  text-decoration: none;
+  color: #333;
+  margin-right: 15px;
+  cursor: pointer;
+  margin-right: 7rem;
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+#filterLinks {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.active-filter {
+  border-bottom: 4px solid #edb8f3;
+}
+
+.history-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.history-table th {
+  border-bottom: 1px solid #ccc;
+}
+
+.amount-button {
+  background-color: #70707041;
+  border-radius: 20px;
+  color: #fff;
+  border: none;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+

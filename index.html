@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Balance Transfer App</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav>
+        <div class="sidebar">
+            <div class="logo"><img src="Assests/logo.png" alt="Logo"></div>
+
+            <a href="index.html" class="sidebar-link">
+                <img src="Assests/dashboard.png" alt="Dashboard" />
+                Dashboard
+            </a>
+
+            <a href="history.html" class="sidebar-link">
+                <img src="Assests/history.png" alt="History" />
+                History  
+            </a>
+
+            <a href="#" class="sidebar-link">
+                <img src="Assests/benef.png" alt="Beneficiaries" />
+                Beneficiaries
+            </a>
+            
+            <a href="#" class="sidebar-link down">
+                <img src="Assests/settings.png" alt="Settings" />
+                Settings
+            </a>
+
+            <a href="#" class="sidebar-link">
+                <img src="Assests/help.png" alt="Help" />
+                Help 
+            </a>
+            
+            <a href="#" class="sidebar-link">
+                <img src="Assests/logout.png" alt="Logout" />
+                Logout 
+            </a>
+        </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="profile-img"><img src="Assests/Sophia Carter.jpg" alt=""></div>
+            <div class="header">
+                <h1>Hello Sophia Carter</h1>
+                <p>Welcome to the bank transfer service. We're here to help you securely and conveniently transfer your funds. Please follow the steps below to complete your transfer.</p>
+            </div>
+
+            <!-- Account Information Section -->
+            <div class="account-section">
+                <h5>Account Information</h5>
+                <h4>Account Balance: $1000.00</h4>
+                <div class="buttons-section">
+                    <button onclick="makeTransaction()">Make Transaction</button>
+                    <button onclick="redirectToHistory()" class="button-border">Transaction History</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

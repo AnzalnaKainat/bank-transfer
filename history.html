@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav>
+        <div class="sidebar">
+          <div class="logo"><img src="Assests/logo.png" alt="Logo" /></div>
+
+          <a href="index.html" class="sidebar-link">
+            <img src="Assests/dashboard.png" alt="Dashboard" />
+            Dashboard
+          </a>
+
+          <a href="history.html" class="sidebar-link">
+            <img src="Assests/history.png" alt="History" />
+            History
+          </a>
+
+          <a href="#" class="sidebar-link">
+            <img src="Assests/benef.png" alt="Beneficiaries" />
+            Beneficiaries
+          </a>
+
+          <a href="#" class="sidebar-link down">
+            <img src="Assests/settings.png" alt="Settings" />
+            Settings
+          </a>
+
+          <a href="#" class="sidebar-link">
+            <img src="Assests/help.png" alt="Help" />
+            Help
+          </a>
+
+          <a href="#" class="sidebar-link">
+            <img src="Assests/logout.png" alt="Logout" />
+            Logout
+          </a>
+        </div>
+      </nav>
+
+      <div class="main-content">
+        <div class="filter">
+          <h1>History</h1>
+          <form id="filterForm">
+            <label for="name">To</label>
+            <input type="text" id="name" name="name" oninput="(this.value)" />
+            <input type="date" id="date" name="date" oninput="(this.value)" />
+          </form>
+        </div>
+        <div class="history">
+          <div id="filterLinks">
+            <span
+              class="filter-link active-filter"
+              data-filter="all"
+              onclick="filterHistory('all')"
+              >All</span
+            >
+            <span
+              class="filter-link"
+              data-filter="sent"
+              onclick="filterHistory('sent')"
+              >Sent</span
+            >
+            <span
+              class="filter-link"
+              data-filter="receive"
+              onclick="filterHistory('receive')"
+              >Receive</span
+            >
+            <span
+              class="filter-link"
+              data-filter="processing"
+              onclick="filterHistory('processing')"
+              >Processing</span
+            >
+            <span
+              class="filter-link"
+              data-filter="failed"
+              onclick="filterHistory('failed')"
+              >Failed</span
+            >
+          </div>
+          <table class="history-table" id="historyTable">
+            <thead>
+              <tr>
+                <th>Account Holder Name</th>
+                <th>Account Number</th>
+                <th>Bank</th>
+                <th>Date</th>
+                <th>Amount Sent</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <!-- Populate history here using JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script>
+      const transactions = [
+        {
+          name: "James Mitchell",
+          accountNumber: "123456789",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "15,360 pkr",
+          status: "sent",
+        },
+        {
+          name: "Emily Anderson",
+          accountNumber: "347563567",
+          bank: "XYZ Bank",
+          date: "2023-11-03",
+          amountSent: "20,000 pkr",
+          status: "receive",
+        },
+        {
+          name: "Kaz",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2022-12-05",
+          amountSent: "10,550 pkr",
+          status: "failed",
+        },
+        {
+          name: "Ahmed",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "10,550 pkr",
+          status: "processing",
+        },
+        {
+          name: "Alishba",
+          accountNumber: "123456789",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "15,360 pkr",
+          status: "sent",
+        },
+        {
+          name: "Julie",
+          accountNumber: "347563567",
+          bank: "XYZ Bank",
+          date: "2023-11-03",
+          amountSent: "20,000 pkr",
+          status: "receive",
+        },
+        {
+          name: "Abdullah",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2022-12-05",
+          amountSent: "10,550 pkr",
+          status: "failed",
+        },
+        {
+          name: "Ali",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "10,550 pkr",
+          status: "processing",
+        },
+        {
+          name: "Rosie",
+          accountNumber: "123456789",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "15,360 pkr",
+          status: "sent",
+        },
+        {
+          name: "Jesper",
+          accountNumber: "347563567",
+          bank: "XYZ Bank",
+          date: "2023-11-03",
+          amountSent: "20,000 pkr",
+          status: "receive",
+        },
+        {
+          name: "Ellen",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2022-12-05",
+          amountSent: "10,550 pkr",
+          status: "failed",
+        },
+        {
+          name: "Zirfa",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "10,550 pkr",
+          status: "processing",
+        },
+        {
+          name: "Attiqa",
+          accountNumber: "123456789",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "15,360 pkr",
+          status: "sent",
+        },
+        {
+          name: "Faryal",
+          accountNumber: "347563567",
+          bank: "XYZ Bank",
+          date: "2023-11-03",
+          amountSent: "20,000 pkr",
+          status: "receive",
+        },
+        {
+          name: "Urooj",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2022-12-05",
+          amountSent: "10,550 pkr",
+          status: "failed",
+        },
+        {
+          name: "Hamza",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "10,550 pkr",
+          status: "processing",
+        },
+        {
+          name: "Hafsa",
+          accountNumber: "123456789",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "15,360 pkr",
+          status: "sent",
+        },
+        {
+          name: "James",
+          accountNumber: "347563567",
+          bank: "XYZ Bank",
+          date: "2023-11-03",
+          amountSent: "20,000 pkr",
+          status: "receive",
+        },
+        {
+          name: "Hoor",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2022-12-05",
+          amountSent: "10,550 pkr",
+          status: "failed",
+        },
+        {
+          name: "Rubaba",
+          accountNumber: "654345909",
+          bank: "XYZ Bank",
+          date: "2023-12-05",
+          amountSent: "10,550 pkr",
+          status: "processing",
+        },
+        // Add more transactions as needed
+      ];
+
+      function filterHistory(filterType) {
+        let filteredTransactions = [...transactions];
+
+        filteredTransactions = filterByName(filteredTransactions);
+        filteredTransactions = filterByDate(filteredTransactions);
+
+        if (filterType !== undefined && filterType !== "all") {
+          filteredTransactions = filteredTransactions.filter(
+            (transaction) => transaction.status === filterType
+          );
+        }
+
+        displayTransactions(filteredTransactions);
+
+        // Update active filter style
+        const filterLinks = document.querySelectorAll(".filter-link");
+        filterLinks.forEach((link) => link.classList.remove("active-filter"));
+        if (filterType) {
+          document
+            .querySelector(`.filter-link[data-filter="${filterType}"]`)
+            .classList.add("active-filter");
+        }
+      }
+
+      function filterByName(transactions) {
+        const nameFilter = document.getElementById("name").value.toLowerCase();
+        if (!nameFilter) {
+          return transactions;
+        }
+
+        return transactions.filter((transaction) =>
+          transaction.name.toLowerCase().includes(nameFilter)
+        );
+      }
+
+      function filterByDate(transactions) {
+        const dateFilter = document.getElementById("date").value;
+        if (!dateFilter) {
+          return transactions;
+        }
+
+        return transactions.filter((transaction) => {
+          // Convert both dates to strings for accurate comparison
+          const transactionDate = new Date(transaction.date)
+            .toISOString()
+            .slice(0, 10);
+          return transactionDate === dateFilter;
+        });
+      }
+
+      function displayTransactions(transactions) {
+        const tableBody = document.getElementById("historyTableBody");
+        tableBody.innerHTML = "";
+
+        transactions.forEach((item) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.accountNumber}</td>
+          <td>${item.bank}</td>
+          <td>${item.date}</td>
+          <td><button class="amount-button">${item.amountSent}</button></td>
+        `;
+          tableBody.appendChild(row);
+
+          // Add hr line after each row
+          const hrRow = document.createElement("tr");
+          hrRow.innerHTML = '<td colspan="5"><hr></td>';
+          tableBody.appendChild(hrRow);
+        });
+      }
+
+      // Initial load with 'All' filter
+      filterHistory("all");
+
+      document.getElementById("name").addEventListener("input", function () {
+        filterHistory();
+      });
+
+      document.getElementById("date").addEventListener("input", function () {
+        filterHistory();
+      });
+    </script>
+  </body>
+</html>
